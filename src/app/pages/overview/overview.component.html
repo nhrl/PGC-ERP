@@ -1,0 +1,89 @@
+<div class="search_container">
+    <div class="search_wrapper">
+      <i class="search_icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="25" viewBox="0 0 33 33" fill="none">
+          <path d="M21.6194 19.6305C21.0702 19.0813 20.1798 19.0813 19.6306 19.6305C19.0815 20.1797 19.0815 21.0701 19.6306 21.6192L21.6194 19.6305ZM27.8806 29.8692C28.4298 30.4184 29.3202 30.4184 29.8694 29.8692C30.4185 29.3201 30.4185 28.4297 29.8694 27.8805L27.8806 29.8692ZM13.75 21.9686C9.21091 21.9686 5.53125 18.289 5.53125 13.7499H2.71875C2.71875 19.8423 7.65761 24.7811 13.75 24.7811V21.9686ZM21.9688 13.7499C21.9688 18.289 18.2891 21.9686 13.75 21.9686V24.7811C19.8424 24.7811 24.7812 19.8423 24.7812 13.7499H21.9688ZM13.75 5.53113C18.2891 5.53113 21.9688 9.21079 21.9688 13.7499H24.7812C24.7812 7.65749 19.8424 2.71863 13.75 2.71863V5.53113ZM13.75 2.71863C7.65761 2.71863 2.71875 7.65749 2.71875 13.7499H5.53125C5.53125 9.21079 9.21091 5.53113 13.75 5.53113V2.71863ZM19.6306 21.6192L27.8806 29.8692L29.8694 27.8805L21.6194 19.6305L19.6306 21.6192Z" fill="black"/>
+        </svg>
+      </i>
+      <input type="text" placeholder="Search Item" [(ngModel)]="name" (input)="filterProducts()">
+    </div>
+</div>
+<main>
+    <div class="inventory_container">
+        <div class="wrapper">
+            <div class="title" [routerLink]="['/dashboard/inventory/ps5']" >
+                <p>Inventory</p>
+            </div>
+            <div class="loading_container" *ngIf="isload;else showData">
+                <app-spinner></app-spinner>
+            </div>
+            <ng-template #showData>
+              <table class="inventory_table">
+                <tr>
+                  <th>Product</th>
+                  <th>Category</th>
+                  <th>Stock</th>  
+                </tr>
+                <tr *ngFor="let product of items">
+                  <td>{{product.name}}</td>
+                  <td>{{product.categorie}}</td>
+                  <div class="stock_container">
+                    <div class="quantity_wrapper" [ngStyle]="getQuantityStyle(product.quantity)">
+                      <td>{{product.quantity}}</td>
+                    </div>
+                  </div>
+                </tr>
+              </table>
+            </ng-template>
+        </div>
+    </div>
+    <div class="recent_container">
+        <div class="wrapper">
+            <div class="title" [routerLink]="['/dashboard/orders/order']">
+                <p>Recent Orders</p>
+            </div>
+            <table class="inventory_table">
+                <tr>
+                  <th>Customer Name</th>
+                  <th>Item Name</th> 
+                  <th>Quantity</th>   
+                </tr>
+                <tr *ngFor="let item of allOrders">
+                  <td>{{item.customer_name}}</td>
+                  <td>{{item.item_name}}</td>
+                  <td>{{item.quantity}}</td>
+                </tr>
+              </table>
+        </div>
+    </div>
+</main>
+<div class="info_container">
+    <div class="info1">
+        <div class="info_title"><p>Total Income</p></div>
+        <div class="total" *ngIf="totalValue;else display"><app-spinner></app-spinner></div>
+        <ng-template #display>
+          <div *ngIf="totalIncome != undefined" class="total"><p>{{totalIncome | commaSeparated}}</p></div>
+        </ng-template>
+    </div>
+    <div class="info2">
+        <div class="info_title"><p>Customer</p></div>
+        <div class="total" *ngIf="totalValue;else display0"><app-spinner></app-spinner></div>
+        <ng-template #display0>
+          <div *ngIf="totalCustomer != undefined" class="total"><p>{{totalCustomer | commaSeparated}}</p></div>
+        </ng-template>
+    </div>
+    <div class="info3">
+        <div class="info_title"><p>Sale</p></div>
+        <div class="total" *ngIf="totalValue;else display1"><app-spinner></app-spinner></div>
+        <ng-template #display1>
+          <div *ngIf="totalSale != undefined" class="total"><p>{{totalSale | commaSeparated}}</p></div>
+        </ng-template>
+    </div>
+    <div class="info4">
+        <div class="info_title"><p>Product</p></div>
+        <div class="total" *ngIf="totalValue;else display2"><app-spinner></app-spinner></div>
+        <ng-template #display2>
+          <div *ngIf="totalProducts != undefined" class="total"><p>{{totalProducts | commaSeparated}}</p></div>
+        </ng-template>
+    </div>
+</div>

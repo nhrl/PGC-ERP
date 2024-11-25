@@ -1,0 +1,18 @@
+<div class="button_container">
+    <div class="button" [routerLink]="['/dashboard/inventory/ps5']" routerLinkActive="active" >PS5</div>
+    <div class="button" [routerLink]="['/dashboard/inventory/games']" routerLinkActive="active">Games</div>
+    <div class="button" [routerLink]="['/dashboard/inventory/accessories']" routerLinkActive="active">Accessories</div>
+</div>
+<div class="search_container">
+    <div class="add_container">
+        <div class="wrapper" [routerLink]="['/dashboard/inventory/add-item']">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M12 6L12 18" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 12L6 12" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="table_container">
+    <router-outlet></router-outlet>
+</div>

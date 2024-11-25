@@ -1,0 +1,135 @@
+main {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    background: #D9D9D9;
+    width: 90%;
+}
+.login_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    flex: 2;
+    position: relative;
+}
+
+.title {
+    color: #46B14F;
+    font-family: Inter;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 50px;
+}
+.input_container {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   position: relative;
+   width: 100%;
+}
+
+.input_container > input {
+    width: 88%;
+    height: 44px;
+    background: #C0D6DF;
+    margin-bottom: 30px;
+    border: none;
+    padding-left: 40px;
+    outline: none;
+}
+
+.email_icon1{
+    position: absolute;
+    left: 10px;
+    top: 7px;
+}
+.password_icon1 {
+    position: absolute;
+    left: 10px;
+    top: 84px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.sign_up {
+    width: 146px;
+    height: 55px;
+    border-radius: 25px;
+    background: #46B14F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    border: none;
+}
+.side_cotainer {
+    flex: 1;
+    background-color: #46B14F;
+    align-items: center;
+    color: #FFF;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    display: none;
+    flex-direction: column;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.signIn {
+    margin-top: 76px;
+}
+span {
+    cursor: pointer;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+img {
+    height: 70px;
+}
+.logo_container {
+    display: flex;
+    font-size: 24px;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+@media screen and (min-width: 1031px) {
+    .side_cotainer{
+        display: flex;
+        margin-left: -14px;
+    }
+    .container {
+        display: flex;
+        border-radius: 47px;
+        box-shadow: -1px 0px 50.2px 18px rgba(0, 0, 0, 0.25);
+        width: 80%;
+        height: 80%;
+    }
+    .login_container{
+        padding-top: 100px;
+    }
+    .input_container{
+        width: 80%;
+    }
+   
+}

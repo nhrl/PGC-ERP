@@ -1,0 +1,128 @@
+<section>
+    <div class="search_container">
+        <div class="search">
+            <i class="search_logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" viewBox="0 0 30 33" fill="none">
+                    <path d="M20.0434 19.6935C19.5287 19.1119 18.6399 19.0577 18.0584 19.5724C17.4768 20.0872 17.4226 20.9759 17.9373 21.5575L20.0434 19.6935ZM25.2392 29.8075C25.7539 30.3891 26.6426 30.4433 27.2242 29.9285C27.8058 29.4138 27.86 28.5251 27.3453 27.9435L25.2392 29.8075ZM12.9055 21.9692C9.13381 21.9692 5.79295 18.4559 5.79295 13.7505H2.98045C2.98045 19.6766 7.2676 24.7817 12.9055 24.7817V21.9692ZM20.0181 13.7505C20.0181 18.4559 16.6772 21.9692 12.9055 21.9692V24.7817C18.5434 24.7817 22.8306 19.6766 22.8306 13.7505H20.0181ZM12.9055 5.53174C16.6772 5.53174 20.0181 9.04512 20.0181 13.7505H22.8306C22.8306 7.82438 18.5434 2.71924 12.9055 2.71924V5.53174ZM12.9055 2.71924C7.2676 2.71924 2.98045 7.82438 2.98045 13.7505H5.79295C5.79295 9.04512 9.13381 5.53174 12.9055 5.53174V2.71924ZM17.9373 21.5575L25.2392 29.8075L27.3453 27.9435L20.0434 19.6935L17.9373 21.5575Z" fill="black"/>
+                </svg>
+            </i>
+            <input [(ngModel)]="name" class="search_input" type="text" (input)="filterProducts()" placeholder="Search for Item">
+        </div>
+    </div>
+    <div class="success_container">
+        <div class="success_wrapper">
+            <div *ngIf="success" class="alert alert-success alert-dismissible fade show">
+                <strong>Success!</strong> Product edited successfully.
+                <button (click)="closeMessage()" type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <div *ngIf="isDeleted" class="alert alert-success alert-dismissible fade show">
+                <strong>Success!</strong> Product deleted successfully.
+                <button (click)="closeMessage()" type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
+    </div>
+    <div class="loader_container" *ngIf="isLoad; else display">
+        <app-spinner></app-spinner>
+    </div>
+    <ng-template #display>
+        <div class="table_container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Desciption</th>
+                    <th>Type</th>
+                    <th>Image</th>
+                </tr>
+                <tr class="data_row"  *ngFor="let product of games">
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.categorie}}</td>
+                    <td><img class="image" src="{{path}}{{product.image}}" alt="Product_Image"></td>
+                    <div class="button_container">
+                        <button class="edit" (click)="editFormShow(product)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="29" viewBox="0 0 24 29" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M17.2145 13.2672L19.2834 10.881C19.8317 10.2487 20.1059 9.93246 20.2322 9.58555C20.3932 9.14353 20.3932 8.65892 20.2322 8.21689C20.1059 7.86999 19.8317 7.55379 19.2834 6.92141C18.5743 6.10347 18.2197 5.69451 17.8132 5.51362C17.2956 5.28322 16.7045 5.28322 16.1868 5.51362C15.7803 5.69451 15.4258 6.10348 14.7166 6.92141L13.1922 8.67961C14.1453 10.5059 15.5248 12.081 17.2145 13.2672ZM15.8984 14.7852C14.234 13.5822 12.8387 12.049 11.7983 10.2873L4.72889 18.4408C4.36672 18.8585 4.18563 19.0673 4.06862 19.314C3.9516 19.5606 3.90437 19.833 3.80991 20.3777L3.12866 24.3063C3.0705 24.6417 3.04143 24.8094 3.13881 24.9015C3.2362 24.9937 3.40203 24.9555 3.73369 24.8789L6.73042 24.1877C7.35988 24.0425 7.67462 23.9699 7.9467 23.8062C8.21878 23.6425 8.43037 23.3985 8.85355 22.9104L15.8984 14.7852Z" fill="white"/>
+                            </svg>
+                        </button>
+                        <button class="delete" (click)="deleteShow(product)">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="19" viewBox="0 0 18 19" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18 0.747559H0V4.20762C1.10457 4.20762 2 5.10305 2 6.20762V12.0479C2 14.8763 2 16.2905 2.87868 17.1692C3.75736 18.0479 5.17157 18.0479 8 18.0479H10C12.8284 18.0479 14.2426 18.0479 15.1213 17.1692C16 16.2905 16 14.8763 16 12.0479V6.20762C16 5.10305 16.8954 4.20762 18 4.20762V0.747559ZM7.5 6.51433C7.5 5.96205 7.05228 5.51433 6.5 5.51433C5.94772 5.51433 5.5 5.96205 5.5 6.51433V12.2811C5.5 12.8334 5.94772 13.2811 6.5 13.2811C7.05228 13.2811 7.5 12.8334 7.5 12.2811V6.51433ZM12.5 6.51433C12.5 5.96205 12.0523 5.51433 11.5 5.51433C10.9477 5.51433 10.5 5.96205 10.5 6.51433V12.2811C10.5 12.8334 10.9477 13.2811 11.5 13.2811C12.0523 13.2811 12.5 12.8334 12.5 12.2811V6.51433Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+                </tr>
+            </table>
+        </div>
+    </ng-template>
+    <div class="update_container" *ngIf="formShown">
+        <div class="close_container">
+            <svg (click)="hideForm()" xmlns="http://www.w3.org/2000/svg" width="48" height="42" viewBox="0 0 48 42" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M42 21C42 29.6985 33.9411 36.75 24 36.75C14.0589 36.75 6 29.6985 6 21C6 12.3015 14.0589 5.25 24 5.25C33.9411 5.25 42 12.3015 42 21ZM15.2474 28.6585C14.8318 28.2948 14.8318 27.7052 15.2474 27.3415L22.4948 21L15.2474 14.6585C14.8318 14.2948 14.8318 13.7052 15.2474 13.3415C15.6631 12.9778 16.3369 12.9778 16.7526 13.3415L24 19.683L31.2474 13.3415C31.6631 12.9778 32.3369 12.9778 32.7526 13.3415C33.1682 13.7052 33.1682 14.2948 32.7526 14.6585L25.5052 21L32.7526 27.3415C33.1682 27.7052 33.1682 28.2948 32.7526 28.6585C32.3369 29.0222 31.6631 29.0222 31.2474 28.6585L24 22.317L16.7526 28.6585C16.3369 29.0222 15.6631 29.0222 15.2474 28.6585Z" fill="#FF3333"/>
+            </svg>
+        </div>
+        <div *ngIf="isLoad; else form" class="loader_container">
+            <app-spinner></app-spinner>
+        </div>
+        <ng-template #form>
+            <div class="form_container">
+                <div class="delete_container" *ngIf="delete; else edit">
+                    <div class="alert alert-warning" role="alert">
+                        Product Details
+                      </div>
+                    <form [formGroup]="item">
+                        <div class="wrapper">
+                            <p>Item Name</p>
+                            <input type="text" formControlName = "name" readonly="readonly">
+                            <p>Item Price</p>
+                            <input type="text" formControlName = "price" readonly="readonly">
+                            <p>Item Description</p>
+                            <input type="text" formControlName = "description" readonly="readonly">
+                            <p>Item Quantity</p>
+                            <input type="text" formControlName = "quantity" readonly="readonly">
+                            <p>Item Type</p>
+                            <select formControlName = "categorie" readonly="readonly">
+                                <option value="console">Console</option>
+                                <option value="games">Games</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                        </div>
+                        <div class="update_button">
+                            <button type="submit" class="button" (click)="deleteProduct()">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <ng-template #edit>
+                    <form [formGroup]="item" (ngSubmit)="submit()">
+                        <div class="wrapper">
+                            <p>Item Name</p>
+                            <input type="text" formControlName = "name">
+                            <p>Item Price</p>
+                            <input type="text" formControlName = "price">
+                            <p>Item Description</p>
+                            <input type="text" formControlName = "description">
+                            <p>Item Quantity</p>
+                            <input type="text" formControlName = "quantity">
+                            <p>Item Type</p>
+                            <select formControlName = "categorie">
+                                <option value="console">Console</option>
+                                <option value="games">Games</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                            <p>Picture</p>
+                            <input type="file" (change)="getImage($event)">
+                        </div>
+                        <div class="update_button">
+                            <button type="submit" class="button">Edit</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </div>
+        </ng-template>
+    </div>
+</section>

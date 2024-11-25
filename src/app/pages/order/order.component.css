@@ -1,0 +1,17 @@
+.button_container {
+    height: 40px;
+    background-color: #C0D6DF;
+    display: flex;
+    justify-content: space-evenly;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #4A6FA5;
+}

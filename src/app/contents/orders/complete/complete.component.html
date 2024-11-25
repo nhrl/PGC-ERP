@@ -1,0 +1,32 @@
+<main>
+    <div *ngIf="isLoad;else showTable" class="loader_container">
+        <app-spinner></app-spinner>
+    </div>
+    <ng-template #showTable>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Payment</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            <tr class="data_row" *ngFor="let item of allOrder">
+                <td>{{item.order_id}}</td>
+                <td>{{item.customer_name}}</td>
+                <td>{{item.customer_address}}</td>
+                <td>COD</td>
+                <td>{{item.item_name}}</td>
+                <td>{{item.quantity}}</td>
+                <td>{{item.total}}</td>
+                <td class="button_col">
+                    <div class="button">
+                        Order Receive
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </ng-template>
+</main>

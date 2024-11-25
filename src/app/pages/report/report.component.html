@@ -1,0 +1,34 @@
+<main>
+    <div class="overall_container">
+        <div class="wrap">
+            <div class="wrapper">
+                <app-spinner *ngIf="isLoad;else display"></app-spinner>
+                <ng-template #display><p>{{allOrders}}</p></ng-template>
+            </div>
+            <p>Overall</p>
+        </div>
+    </div>
+    <div class="category_container">
+        <div class="wrap">
+            <div class="wrapper1">
+                <app-spinner *ngIf="isLoad;else display1"></app-spinner>
+                <ng-template #display1><p>{{totalConsole}}</p></ng-template>
+            </div>
+            <p>PS5</p>
+        </div>
+        <div class="wrap">
+            <div class="wrapper2">
+                <app-spinner *ngIf="isLoad;else display2"></app-spinner>
+                <ng-template #display2><p>{{totalGames}}</p></ng-template>
+            </div>
+            <p>Games</p>
+        </div>
+        <div class="wrap">
+            <div class="wrapper3">
+                <app-spinner *ngIf="isLoad;else display3"></app-spinner>
+                <ng-template #display3><p>{{totalAccessoreis}}</p></ng-template>
+            </div>
+            <p>Accessories</p>
+        </div>
+    </div>
+</main>

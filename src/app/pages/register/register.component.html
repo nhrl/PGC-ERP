@@ -1,0 +1,62 @@
+<main>
+    <div class="login_container">
+       <div class="input_container">
+        <div class="logo_container">
+            <img src="assets/logo.svg" alt="">
+            <p>PlayGround Central</p>
+        </div>
+        <div class="title_container">
+            <p>Create Account</p>
+        </div>
+        <form [formGroup]="registerForm" (ngSubmit)="submit()">
+            <div class="input_wrapper">
+                <div class="input">
+                    <i class="firstname_icon"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                        <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg></i>
+                    <input type="text" placeholder="Firstname" formControlName = "first_name">
+                    <i class="lastname_icon"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                        <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg></i>
+                    <input type="text" placeholder="Lastname" formControlName = "last_name">
+                    <i class="age_icon"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                        <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg></i>
+                    <input type="text" placeholder="Age" formControlName = "age">
+                    <i class="address_icon"><svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                        <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg></i>
+                    <input type="text" placeholder="Address" formControlName = "address">
+                    <i class="email_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                            <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                    </i>
+                    <input type="text" placeholder="Username" formControlName = "username">
+                    <i class="password_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="25" viewBox="0 0 23 25" fill="none">
+                            <path d="M1.83331 12.6665C1.83331 10.7809 1.83331 9.83808 2.4191 9.25229C3.00489 8.6665 3.94769 8.6665 5.83331 8.6665H17.1666C19.0523 8.6665 19.9951 8.6665 20.5809 9.25229C21.1666 9.83808 21.1666 10.7809 21.1666 12.6665V17.1665C21.1666 19.9949 21.1666 21.4091 20.288 22.2878C19.4093 23.1665 17.9951 23.1665 15.1666 23.1665H7.83332C5.00489 23.1665 3.59067 23.1665 2.71199 22.2878C1.83331 21.4091 1.83331 19.9949 1.83331 17.1665V12.6665Z" stroke="#33363F" stroke-width="2"/>
+                            <path d="M16.3333 7.66667V6.45833C16.3333 3.78896 14.1693 1.625 11.5 1.625V1.625C8.83058 1.625 6.66663 3.78896 6.66663 6.45833V7.66667" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                    </i>
+                    <input type="password" placeholder="Passoword" formControlName = "password">
+                </div>
+            </div>
+            <div class="button_container">
+                <button class="button" type="submit">Sign in</button>
+            </div>
+        </form>
+        <div class="sign_up_container">
+            <p>Already have an account? <span class="signUp" [routerLink]="['/']">Sign up</span></p>
+        </div>
+       </div>
+       <div class="green_container">
+            <p>Hello, Friend!</p>
+       </div> 
+    </div>
+</main>

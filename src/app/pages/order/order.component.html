@@ -1,0 +1,7 @@
+<div class="button_container">
+    <div class="button" [routerLink]="['/dashboard/orders/order']" routerLinkActive="active" >Order</div>
+    <div class="button" [routerLink]="['/dashboard/orders/preparing']" routerLinkActive="active">Preparing</div>
+    <div class="button" [routerLink]="['/dashboard/orders/deliver']" routerLinkActive="active">Deliver</div>
+    <div class="button" [routerLink]="['/dashboard/orders/complete']" routerLinkActive="active">Complete</div>
+</div>
+<router-outlet></router-outlet>

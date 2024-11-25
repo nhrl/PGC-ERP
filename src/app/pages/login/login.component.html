@@ -1,0 +1,37 @@
+<main>
+    <div class="container">
+        <div class="side_cotainer">
+            <div class="logo_container">
+                <img src="assets/logo.svg" alt="">
+                <p>PlayGround Central</p>
+            </div>
+            <p>Welcome Back!</p>
+        </div> 
+        <div class="login_container">
+            <div *ngIf="notValidCredentials" class="alert alert-danger" role="alert">
+                Error! Invalid Credentials
+              </div>
+            <p class="title">Sign in to PlayGround Central</p>
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="input_container">
+                    <i class="email_icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+                            <path d="M23.8373 24.7071C23.2865 23.1655 22.0729 21.8033 20.3847 20.8317C18.6964 19.8601 16.6279 19.3335 14.5 19.3335C12.372 19.3335 10.3035 19.8601 8.61529 20.8317C6.92706 21.8032 5.71346 23.1655 5.1627 24.7071" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="14.5" cy="9.66683" r="4.83333" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </i>
+                    <input type="text" name="username" formControlName="username" placeholder="Username">
+                    <i class="password_icon1"><svg xmlns="http://www.w3.org/2000/svg" width="23" height="25" viewBox="0 0 23 25" fill="none">
+                        <path d="M1.83333 12.6665C1.83333 10.7809 1.83333 9.83808 2.41912 9.25229C3.0049 8.6665 3.94771 8.6665 5.83333 8.6665H17.1667C19.0523 8.6665 19.9951 8.6665 20.5809 9.25229C21.1667 9.83808 21.1667 10.7809 21.1667 12.6665V17.1665C21.1667 19.9949 21.1667 21.4091 20.288 22.2878C19.4093 23.1665 17.9951 23.1665 15.1667 23.1665H7.83333C5.00491 23.1665 3.59069 23.1665 2.71201 22.2878C1.83333 21.4091 1.83333 19.9949 1.83333 17.1665V12.6665Z" stroke="#33363F" stroke-width="2"/>
+                        <path d="M16.3333 7.66667V6.45833C16.3333 3.78896 14.1694 1.625 11.5 1.625V1.625C8.83063 1.625 6.66667 3.78896 6.66667 6.45833V7.66667" stroke="#33363F" stroke-width="2" stroke-linecap="round"/>
+                        </svg></i>
+                    <input type="password" name="password" formControlName="password" placeholder="Password">
+                </div>
+                <div class="sign_up_container">
+                    <button class="sign_up" type="submit">Sign up</button>
+                </div>
+            </form>
+            <p class="signIn">Don’t have an account?<span [routerLink]="['/register']" >Sign in</span></p>
+        </div>
+    </div>
+</main>

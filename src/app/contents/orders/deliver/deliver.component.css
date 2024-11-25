@@ -1,0 +1,94 @@
+main{
+    border: 1px solid black;
+    margin-top: 10px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+table {
+    width: 100%;
+}
+table tr th{
+    border: 1px solid black;
+    padding: 0 20px;
+}
+.button_col {
+    width: 160px;
+}
+tr td {
+    text-align: center;
+    padding-top: 5px;
+}
+.data_row {
+    border: 1px solid black;
+}
+button {
+    width: 140px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    height: 30px;
+    background-color: #EEDD7F;
+    cursor: pointer;
+}
+.loader_container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.succesMessage {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.wrapp {
+    width: 50%;
+}
+@media screen and (min-width: 1000px) {
+    button {
+        margin-top: 5px;
+    }
+}
+
+/*Confirmation Container*/
+.confirmation_container {
+    border: 1px solid black;
+    position: absolute;
+    display: flex;
+    top: 300px;
+    background-color: white;
+}
+.message_container {
+    border: 1px solid black;
+    width: 300px
+}
+.close_container {
+    display: flex;
+    justify-content: end;
+}
+.close_logo {
+    cursor: pointer;
+}
+.message {
+    border-top: 1px solid black;
+    text-align: center;
+    padding-top: 10px;
+}
+.button_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+.button {
+    background-color: #5A7EFF;
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}

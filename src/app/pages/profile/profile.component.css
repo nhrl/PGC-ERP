@@ -1,0 +1,156 @@
+.main_container {
+    padding-top: 20px;
+}
+.title_container {
+    padding-left: 20px;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.profile_container {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.userDetails_container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    margin-top: 10px;
+}
+span {
+    color: #000;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-right: 5px;
+}
+.userDetails_container > p{
+    margin-bottom: 10px;
+}
+.wrapper {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.button_container {
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.profile {
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    border-radius: 5px;
+}
+.profile_img {
+    height: 100%;
+    width: 100%;
+}
+.button {
+    background-color: #C0D6DF;
+    height: 40px;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+@media screen and (min-width: 1000px) {
+    .profile_container {
+        flex-direction: column;
+        flex: 1;
+    }
+    .button_container {
+        flex-direction: row;
+    }
+    .container {
+        display: flex;
+    }
+    .userDetails_container {
+        flex: 1;
+    }
+    .button {
+        width: 200px;
+    }
+    .title_container {
+        font-size: 32px;
+    }
+}
+
+/*Edit Container*/
+.edit_container {
+    border: 1px solid black;
+    position: absolute;
+    width: 80%;
+    top: 100px;
+    background-color: white;
+    padding-left: 10px;
+    display: flex;
+    justify-content: center;
+    margin-left: 10px;
+}
+form {
+    width: 100%;
+}
+.form_container > p {
+  margin-top: 10px;
+}
+
+.form_container > input {
+    outline: none;
+}
+
+.form_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.update {
+    margin-top: 10px;
+    background-color: green;
+    border: none;
+}
+@media screen and (min-width: 1000px) {
+    .form_container {
+        width: 60%;
+    }
+    .edit_container {
+        width: 70%;
+    }
+    form {
+        display: flex;
+        justify-content: center;
+    }
+}
+.loading_container {
+    width: 100%;
+    height: 300px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.succes_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrap {
+    width: 50%;
+}

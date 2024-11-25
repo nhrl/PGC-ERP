@@ -1,0 +1,51 @@
+<main>
+    <div class="update_container">
+        <div class="close_container">
+            <div class="wrap" (click)="close()">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="48" height="42" viewBox="0 0 48 42" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M42 21C42 29.6985 33.9411 36.75 24 36.75C14.0589 36.75 6 29.6985 6 21C6 12.3015 14.0589 5.25 24 5.25C33.9411 5.25 42 12.3015 42 21ZM15.2474 28.6585C14.8318 28.2948 14.8318 27.7052 15.2474 27.3415L22.4948 21L15.2474 14.6585C14.8318 14.2948 14.8318 13.7052 15.2474 13.3415C15.6631 12.9778 16.3369 12.9778 16.7526 13.3415L24 19.683L31.2474 13.3415C31.6631 12.9778 32.3369 12.9778 32.7526 13.3415C33.1682 13.7052 33.1682 14.2948 32.7526 14.6585L25.5052 21L32.7526 27.3415C33.1682 27.7052 33.1682 28.2948 32.7526 28.6585C32.3369 29.0222 31.6631 29.0222 31.2474 28.6585L24 22.317L16.7526 28.6585C16.3369 29.0222 15.6631 29.0222 15.2474 28.6585Z" fill="#FF3333"/>
+                </svg>
+            </div>
+        </div>
+        <div class="form_container">
+            <div class="loader_container" *ngIf="isload; else form">
+                <app-spinner></app-spinner>
+            </div>
+            <ng-template #form>
+                <div class="success_container" *ngIf="success; else displayForm">
+                    <div class="wrapper1">
+                        <div class="alert alert-success" role="alert">
+                            Product added successfully!
+                        </div>
+                    </div>
+                </div>
+                <ng-template #displayForm>
+                    <form [formGroup]="item" (ngSubmit)="submit()">
+                        <div class="wrapper">
+                            <p>Item Name</p>
+                            <input type="text" formControlName = "name">
+                            <p>Item Price</p>
+                            <input type="text" formControlName = "price">
+                            <p>Item Description</p>
+                            <input type="text" formControlName = "description">
+                            <p>Item Quantity</p>
+                            <input type="text" formControlName = "quantity">
+                            <p>Item Type</p>
+                            <select formControlName = "categorie">
+                                <option value="console">Console</option>
+                                <option value="games">Games</option>
+                                <option value="accessories">Accessories</option>
+                            </select>
+                            <p>Picture</p>
+                            <input type="file" (change)="getImage($event)">
+                        </div>
+                        <div class="update_button">
+                            <button type="submit" class="button">Add</button>
+                        </div>
+                    </form>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
+</main>
+

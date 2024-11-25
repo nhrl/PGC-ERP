@@ -1,0 +1,55 @@
+<div class="main_container">
+    <div class="title_container">
+        <p>Account Details</p>
+    </div>
+    <div class="succes_container" *ngIf="success">
+        <div class="wrap">
+            <div class="alert alert-success" role="alert">
+                Profile Edited Successfully
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="profile_container">
+            <div class="wrapper">
+                <div class="profile">
+                    <img class="profile_img" *ngIf="picture" [src]="picture.url" alt="Profile Picture">
+                </div>
+            </div>
+            <div class="button_container">
+                <div class="button" (click)="EditFormShow()">Update Profile</div>
+            </div>
+        </div>
+        <div class="userDetails_container">
+            <p><span>First Name:</span>{{first}}</p>
+            <p><span>Last Name:</span>{{last}}</p>
+            <p><span>Age:</span>{{age}}</p>
+            <p><span>Address:</span>{{address}}</p>
+        </div>
+    </div>
+</div>
+<div class="edit_container" *ngIf="editForm">
+    <div class="loading_container" *ngIf="isLoading;else form">
+        <app-spinner></app-spinner>
+    </div>
+    <ng-template #form>
+        <form [formGroup]="updateForm" (ngSubmit)="submit()">
+            <div class="form_container">
+                <p>First Name</p>
+                <input type="text" formControlName="first_name">
+                <p>Last Name</p>
+                <input type="text" formControlName="last_name">
+                <p>Age</p>
+                <input type="text" formControlName="editage">
+                <p>Address</p>
+                <input type="text" formControlName="editaddress">
+                <p>Profile Picture</p>
+                <input type="file" (change)="imageUpload($event)">
+                <div>
+                    <button class="update">Update Profile</button>
+                    <button (click)="EditFormHide()">Close</button>
+                </div>
+            </div>
+        </form>
+    </ng-template>
+</div>
